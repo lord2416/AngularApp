@@ -40,4 +40,48 @@ angular.module('myApp.common')
 			}
 		}
 	}
+})
+.directive('retainDecimal',function(){
+	var ROUNDUP_0_REGEXP = /^\d+$/,	
+		ROUNDUP_1_REGEXP = /^\d+(\.)?\d{0,1}$/,
+		ROUNDUP_2_REGEXP = /^\d+(\.)?\d{0,2}$/,
+		retainConfig = {
+			restrict:"A",
+			require:'?ngModel',
+			link:function($scope,$elem,$attrs,ngModelCtrl){
+				ngModelCtrl.$parsers.push(function(value){
+					var retainDecimal = $attrs.retainDecimal,
+						lastVal = value.substring(0,value.length-1),
+						lastChar = value.charAt(value.length-1),
+						isValid,str;
+					switch(retainDecimal){
+						case "1":
+							isValid = ROUNDUP_1_REGEXP.test(value);
+							str = '.0';
+							break;
+						case "2":
+							isValid = ROUNDUP_2_REGEXP.test(value);
+							str = '.00';
+							break;
+						default:
+							isValid = ROUNDUP_0_REGEXP.test(value);
+							str = '';
+							break;
+					}			    
+					if(isValid){
+						if(lastChar == '.'){
+							ngModelCtrl.$setViewValue(lastVal+str);
+	                    	ngModelCtrl.$render();
+							return lastVal+str;
+						}
+						return value;
+					}else{
+						ngModelCtrl.$setViewValue(lastVal);
+	                    ngModelCtrl.$render();
+						return lastVal;
+					}
+				});
+			}
+		};
+	return retainConfig;
 });
