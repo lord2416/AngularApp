@@ -1,0 +1,13 @@
+<p>{{pageName}}-----userId is {{userId}}</p>
+<a href="/">go to main page</a>
+<trix-editor angular-trix ng-model="foo"></trix-editor>
+<trix-editor ng-model-options="{ updateOn: 'blur' }" 
+  spellcheck="false" class="trix-content" ng-model="trix"
+  angular-trix trix-initialize="trixInitialize(e, editor);" 
+  trix-change="trixChange(e, editor);" 
+  trix-selection-change="trixSelectionChange(e, editor);" 
+  trix-focus="trixFocus(e, editor);" trix-blur="trixBlur(e, editor);"
+  trix-file-accept="trixFileAccept(e, editor);"
+  trix-attachment-add="trixAttachmentAdd(e, editor);" 
+  trix-attachment-remove="trixAttachmentRemove(e, editor);" 
+  placeholder="Write something.."></trix-editor>

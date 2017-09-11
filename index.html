@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.css">
+		<style type="text/css">
+			.hide{
+				width: 0px;
+				height: 0px;
+				display: none;
+				transition: all 2s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap" ng-class="{'hide':$root.loading}">
+			<ng-view></ng-view>
+		</div>
+		<div id="loading" ng-class="{'hide':!$root.loading}">
+			<img src="assets/image/spinner.gif"/>
+		</div>
+		<script src="vendor/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.js"></script>
+		<script src="vendor/angular.js"></script>
+		<script src="vendor/angular-route.js"></script>
+		<script src="vendor/angular-trix.js"></script>
+		<script src="dist/min/js/all.min.js"></script>
+	</body>
+</html>
