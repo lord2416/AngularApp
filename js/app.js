@@ -1,6 +1,7 @@
 angular.module('myApp',[
 	'ngRoute',
 	'angularTrix',
+	'ui.tinymce',
 	'myApp.common',
 	'myApp.main',
 	'myApp.user'
@@ -47,6 +48,11 @@ angular.module('myApp',[
 				});
 			}
 		},
+		reloadOnSearch:false
+	})
+	.when('/tinymice',{
+		templateUrl:'template/tinymice.html',
+		controller:'tinymiceCtrl',
 		reloadOnSearch:false
 	})
 	.otherwise({
