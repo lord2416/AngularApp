@@ -1,9 +1,13 @@
 <p>{{pageName}}</p>
 <a href="/#/user/1">go to user page</a>
+<br />
 <a href="/#/tinymice">tinymice page</a>
+<br />
+<a href="/#/dropdown">dropdown page</a>
 <input type="text" name="myInput1" my-input-parse ng-model="myInputVal1"/>
 <p>{{myInputValRes}}</p>
 <button ng-click="updateVal()">update</button>
 <input type="text" name="myInput2" retain-decimal="0" ng-model="myInputVal2"/>
 <input type="text" name="myInput2" retain-decimal="1" ng-model="myInputVal3"/>
 <input type="text" name="myInput2" retain-decimal="2" ng-model="myInputVal4"/>
+<search-select name="mySelect" ng-model="selectVal" options="parentOptions"></search-select>

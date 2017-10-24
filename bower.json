@@ -1,0 +1,17 @@
+{
+  "name": "angularapp",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "lord2416"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/lord2416/AngularApp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

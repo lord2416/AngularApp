@@ -84,4 +84,43 @@ angular.module('myApp.common')
 			}
 		};
 	return retainConfig;
+})
+.directive('searchSelect',function($sce){
+	return{
+		restrict:"EA",
+		replace:true,
+		transclude: true,
+		require:'?ngModel',
+		scope:{
+			options:'=',
+			name:'@'
+		},
+		template:	
+			'<div class="ui fluid search selection dropdown upward">\
+				<input type="hidden" name="{{name}}" ng-model="selectedValue">\
+				<i class="dropdown icon"></i>\
+				<div class="default text" ng-bind="selectedValue"></div>\
+			  	<div class="menu transition hidden">\
+			    	<div class="item" data-index="{{option.index}}" data-value="{{option.index}}" ng-repeat = "option in options" ng-bind="option.item"></div>\
+			  	</div>\
+			</div>',
+		link:function($scope,$elem,$attrs,ngModel){
+			$elem.dropdown({
+				fullTextSearch:true,
+				onChange: function(value, text, $selectedItem) {
+					$scope.$apply(function(){
+						ngModel.$setViewValue(value);
+					});
+			    }
+			});
+			ngModel.$render = function(){
+				console.log('it is $render');
+				$elem.dropdown('set selected',"3");
+			};
+//			$elem.dropdown('set selected',"3");
+			$attrs.$observe('ngModel',function(val){
+				console.log(val);
+			});
+		}
+	}
 });

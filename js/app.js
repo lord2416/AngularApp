@@ -1,6 +1,7 @@
 angular.module('myApp',[
 	'ngRoute',
 	'angularTrix',
+	'angularify.semantic.dropdown',
 	'ui.tinymce',
 	'myApp.common',
 	'myApp.main',
@@ -53,6 +54,11 @@ angular.module('myApp',[
 	.when('/tinymice',{
 		templateUrl:'template/tinymice.html',
 		controller:'tinymiceCtrl',
+		reloadOnSearch:false
+	})
+	.when('/dropdown',{
+		templateUrl:'template/dropdown.html',
+		controller:'TestDropDownCtrl',
 		reloadOnSearch:false
 	})
 	.otherwise({
