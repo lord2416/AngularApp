@@ -23,6 +23,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-strip-debug": "^1.1.0",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "koa": "^2.4.1",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.3.0"
   }
 }

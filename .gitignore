@@ -4,3 +4,4 @@ desktop.ini
 bower_components/
 /dist/*
 package-lock.json
+.idea/
