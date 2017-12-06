@@ -5,3 +5,4 @@ bower_components/
 /dist/*
 package-lock.json
 .idea/
+.babelrc
