@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"gulp start\" \"node --harmony index.js\""
+    "start": "concurrently \"gulp start\" \"node --harmony index.js\"",
+    "dev": "nodemon app.js --exec babel-node"
   },
   "author": "lord2416",
   "license": "ISC",
