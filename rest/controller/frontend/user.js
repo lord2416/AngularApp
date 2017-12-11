@@ -17,7 +17,7 @@ class UserController{
      * @returns {Promise.<void>}
      */
     static async get(ctx){
-
+        console.log(ctx.params);
     }
 
     /**

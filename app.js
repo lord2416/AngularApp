@@ -7,14 +7,23 @@ const app = new Koa();
 const router = require('koa-router')();
 const {backendRouter} = require('./rest/index');
 
-app.use(backendRouter.route())
+//log
+app.use(async (ctx, next)=>{
+    let start = new Date().getTime();
+    await next();
+    let spend = new Date().getTime()-start;
+    console.log(`${ctx.request.method} : ${ctx.request.url} Time: ${spend}ms`);
+});
+
+
+//routers
+app.use(backendRouter.routes())
     .use(backendRouter.allowedMethods());
 
-// response
 app.on('error', function(err, ctx){
     console.log(err)
     logger.error('server error', err, ctx);
     ctx.render('error', { message: ' service error!',error: err });
 });
 
-http.createServer(app.callback()).listen(3000);
+app.listen(3000);

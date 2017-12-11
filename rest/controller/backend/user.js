@@ -17,7 +17,13 @@ class UserController{
      * @returns {Promise.<void>}
      */
     static async get(ctx){
-
+        let user = {
+            name: "test",
+            value: "1"
+        };
+        console.log(ctx.params);
+        ctx.response.type = "application/json";
+        ctx.response.body = user;
     }
 
     /**
