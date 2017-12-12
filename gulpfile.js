@@ -9,10 +9,10 @@ var env = process.env.NODE_ENV;
 
 var configPath = {
 	jsPath:{
-		src:'js/**/*.js',
+		src:'static/js/**/*.js',
 		dest:{
-			normal:'dist/normal/js/',
-			min:'dist/min/js/'
+			normal:'static/dist/normal/js/',
+			min:'static/dist/min/js/'
 		}
 	},
 	cssPath:{

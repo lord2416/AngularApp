@@ -1,11 +1,19 @@
 /**
  * Created by leonliu on 12/6/2017.
  */
-const http = require('http');
+const path = require('path');
 const Koa = require('koa');
 const app = new Koa();
 const router = require('koa-router')();
+const bodyParser = require('koa-bodyparser');
+const KoaStatic = require('koa-static');
 const {backendRouter} = require('./rest/index');
+
+//static
+app.use(KoaStatic(
+    path.join(__dirname, './static')
+));
+app.use(bodyParser());
 
 //log
 app.use(async (ctx, next)=>{
