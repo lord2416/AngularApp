@@ -6,7 +6,7 @@ angular.module('myApp.common')
 		},
 		getUser:function(){
 			// return $http.get('mock/testNgRoute-user.json');
-            return $http.get('user/1');
+            return $http.get('/api/user/1');
 		},
 		getRest:function(){
 			return $http.get('/restapi/login');

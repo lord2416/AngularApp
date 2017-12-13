@@ -14,6 +14,7 @@ let query = (sql, values)=>{
         pool.getConnection((err, connection)=>{
             if(err){
                 reject(err);
+                connection.end();
             }else{
                 connection.query(sql, values, (err, rows)=>{
                     if(err){

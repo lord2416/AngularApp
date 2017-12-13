@@ -20,7 +20,10 @@ class UserController{
      */
     static async get(ctx){
         let sql = "select * from user;"
-        let datalist = await query(sql);
+        // let datalist = await query(sql);
+        let datalist = [
+            {"id": 1, "name": "leon"}
+        ];
         ctx.response.type = "application/json";
         ctx.response.body = datalist;
     }

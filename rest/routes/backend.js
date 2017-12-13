@@ -8,9 +8,9 @@ router
     .get('/', function (ctx, body) {
         ctx.body = 'Hello World!';
     })
-    .post('/user', BackUser.create)
-    .get('/user/:id', BackUser.get)
-    .put('/user/:id', BackUser.put)
-    .delete('/user/:id', BackUser.delete);
+    .post('/api/user', BackUser.create)
+    .get('/api/user/:id', BackUser.get)
+    .put('/api/user/:id', BackUser.put)
+    .delete('/api/user/:id', BackUser.delete);
 
 module.exports = router;

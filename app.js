@@ -8,6 +8,8 @@ const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
 const KoaStatic = require('koa-static');
 const {backendRouter} = require('./rest/index');
+const rest = require('./rest/middleware/rest');
+const timeSpend = require('./rest/middleware/timeSpend');
 
 //static
 app.use(KoaStatic(
@@ -15,14 +17,11 @@ app.use(KoaStatic(
 ));
 app.use(bodyParser());
 
-//log
-app.use(async (ctx, next)=>{
-    let start = new Date().getTime();
-    await next();
-    let spend = new Date().getTime()-start;
-    console.log(`${ctx.request.method} : ${ctx.request.url} Time: ${spend}ms`);
-});
+//timeSpend
+app.use(timeSpend());
 
+// bind .rest() for ctx:
+app.use(rest.restify());
 
 //routers
 app.use(backendRouter.routes())
